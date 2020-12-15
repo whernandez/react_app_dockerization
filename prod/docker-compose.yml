@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  service_name-prod:
+    container_name: container_name-frontend
+    image: ${DOCKER_REPOSITORY}/${APP_NAME}:${IMAGE_VERSION} 
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.appname.rule=Host(`${TRAEFIK_HOST_01}`)"
+    env_file: .env
+
+networks:
+  default:
+    external:
+      name: docker_default

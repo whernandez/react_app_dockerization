@@ -1,0 +1,22 @@
+# Docker compose file version
+version: "3.7"
+
+services:
+  service-dev:
+    container_name: container-dev
+    # To keep container up
+    stdin_open: true
+    build:
+      # working directory is the current directory
+      context: .
+      dockerfile: Dockerfile
+    # Expose port 3000 map by create react app
+    ports:
+      - "3000:3000"
+    # Mounted volumes
+    volumes:
+      - "./app:/app"
+      - "/app/node_modules"
+    # Set environment to development
+    environment:
+      - NODE_ENV=development

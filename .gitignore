@@ -1,0 +1,13 @@
+# React App
+/app
+dev/app
+prod/app
+
+# IDE
+.idea/
+
+# Enviroment
+.env
+
+# Allow this environment
+!prod/.env
